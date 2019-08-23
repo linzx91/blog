@@ -1,0 +1,61 @@
+{% if site.data.site.lang == null or site.data.site.lang == "" %}
+{% assign lang = site.data.lang.en-US %}
+{% else %}
+{% assign lang = site.data.lang[site.data.site.lang] %}
+{% endif %}
+<style>
+.k-mdui-card {
+	margin-bottom: 32px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+@supports (-webkit-backdrop-filter: brightness(100%) blur(15px)) or (backdrop-filter: brightness(100%) blur(15px)){
+.k-mdui-card {
+	background-color: rgba(255, 255, 255, 0.8);
+	-webkit-backdrop-filter: brightness(100%) blur(15px);
+	backdrop-filter: brightness(100%) blur(15px);
+	}
+}
+.k-head-card-media {
+	max-height: 245px;
+	min-height: 245px;
+	background-color: rgba(48, 48, 51, 0.8);
+}
+.k-head-card-text {
+	margin: 0 auto;
+	color: rgba(245, 245, 245, 0.9);
+}
+</style>
+<div class="mdui-container">
+	<div class="k-posts-list"></div>
+	<div class="mdui-row">
+		<div class="mdui-col-sm-12 mdui-col-md-9">
+			<div class="animated bounceIn k-mdui-card mdui-card mdui-shadow-{{site.data.site.card.card_shadow}} {% if site.data.site.card.card_hoverable == true %}mdui-hoverable{% endif %}">
+				<div class="k-head-card-media mdui-card-media mdui-valign">
+					<div class="k-head-card-text mdui-typo-display-4 font-jitter">
+						4 0 4
+					</div>
+				</div>
+				<div class="mdui-card-primary mdui-text-center">
+					<div class="mdui-card-primary-title">
+						{{lang.error.title}}
+					</div>
+					<div class="mdui-card-primary-subtitle">
+						<strong>
+							{{lang.error.subtitle}}
+						</strong>
+					</div>
+				</div>
+			</div>
+			<div class="mdui-text-center">
+				<a href="{{ " / " | prepend: site.baseurl }}">
+					<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent">
+						<i class="mdui-icon mdui-icon-left material-icons">
+							arrow_back
+						</i>
+						{{lang.error.button}}
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

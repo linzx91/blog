@@ -1,0 +1,72 @@
+title:  # Meng title
+  switch: false # Meng title switch
+  visible: "(*´∇｀*) 被发现啦~" # State is visible text
+  hidden:  "(つェ⊂)看不到我~" # State is hidden text
+  with_default_title: true # with default title
+  reset_time: 1000 # If state is visible , reset default title times(ms)
+
+cursor: # Meng cursor
+  switch: false # Meng cursor switch
+  auto_url: "https://i.loli.net/2019/06/19/5d09363872a9732181.png" # State is auto style
+  pointer_url: "https://i.loli.net/2019/06/19/5d09357e67b1c86798.png" # State is pointer style
+
+console: # Meng console info
+  switch: false # Meng console info switch
+  theme_info: true # output theme info
+  text: "Copyright &copy; 2019 Alin's Blog" # text
+  color: "#fff" # text color
+  background: "#448aff" # background color
+
+header: # Meng header color + theme-color
+  switch: false
+
+background: # Meng background
+  switch: true
+  animation: false
+  transparent_header: true
+  transparent_footer: true
+  transparent_menu: true
+  text_color: '#1a1a1a'
+
+card: # Meng card
+  switch: true
+  background_color: 'rgba(255, 255, 255, 0.8)'
+  card_img_opacity: '0.9'
+
+live2d: # live2d ,see https://github.com/EYHN/hexo-helper-live2d
+  switch: false
+  model: "/assets/live2d/koharu/koharu.model.json" # model.json path
+  drag: true # is drag ?
+  in_mobile: false
+  width: 130 # canvas width
+  height: 190 # canvas height
+  bottom: 100 # canvas bottom
+  leftOrRight: "right" # left or right
+  offset: 10 # offset
+
+#!!!!do not use!!!!
+animation: # animate.css, see https://github.com/daneden/animate.css
+  switch: true # switch on and you can see the animation,!!!!do not use!!!!
+#!!!!do not use!!!!
+
+music_player:
+  switch: true
+  server: "netease" # music platform: netease, tencent, kugou, xiami, baidu
+  type: "playlist" # song, playlist, album, search, artist
+  id: "2278690100" # song id / playlist id / album id / search keyword
+  autoplay: "false" # audio autoplay
+  theme: "#15c8ad" # main color
+  loop: "all" # player loop play, values: 'all', 'one', 'none'
+  order: "random" # player play order, values: 'list', 'random'
+  preload: "auto" # values: 'none', 'metadata', 'auto'
+  volume: "0.7" # default volume, notice that player will remember user setting, default volume will not work after user set volume themselves
+  mutex: "true" # prevent to play multiple player at the same time, pause other players when this player start play
+  btn_color: "linear-gradient(to bottom right,#414345,#232526)" # button color
+  ripple_color: "rgba(255,255,255,0.7)" # button clicks transition effect color
+
+head_card:
+  switch: true
+  left_img: "https://aligege-1259468288.file.myqcloud.com/img/bg-a.png"
+  left_text: "『 · 很高兴能在这里与你分享我对技术和生活的思考。 』"
+  right_img: "https://aligege-1259468288.file.myqcloud.com/img/logo.png"
+  offset_level: 0

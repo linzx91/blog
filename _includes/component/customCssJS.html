@@ -1,0 +1,16 @@
+{% if site.data.site.custom_css!=""  %}
+{% assign css = site.data.site.custom_css %}
+<script type="text/javascript">
+(function($) {
+    $('head').append('<link rel="stylesheet" type="text/css" href="{{ '/assets/css/' | prepend: site.baseurl | append: css }}">');
+})(jQuery);
+</script>
+{% endif %}
+{% if site.data.site.custom_js!=""  %}
+{% assign js = site.data.site.custom_js %}
+<script type="text/javascript">
+(function($) {
+    $.getScript('{{ '/assets/js/' | prepend: site.baseurl | append: js }}');
+})(jQuery);
+</script>
+{% endif %}

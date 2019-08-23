@@ -1,0 +1,70 @@
+{% if site.data.site.lang == null or site.data.site.lang == "" %}
+{% assign lang = site.data.lang.en-US %}
+{% else %}
+{% assign lang = site.data.lang[site.data.site.lang] %}
+{% endif %}
+<style>
+.new-old-buttons {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	margin-top: 16px;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-bottom: 16px;
+}
+@media screen and (min-width:600px) {
+	.new-old-buttons {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
+</style>
+<div class="mdui-divider"></div>
+<div class="new-old-buttons">
+	{% if page.previous.url %}
+	<div class="mdui-col">
+		<a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}">
+			<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent"
+			mdui-tooltip="{content: '{{page.previous.title}}'}">
+				<i class="mdui-icon mdui-icon-left material-icons">
+					arrow_back
+				</i>
+				{{ lang.post_buttons.old }}
+			</button>
+		</a>
+	</div>
+	{% else %}
+	<div class="mdui-col">
+		<button class="mdui-btn mdui-btn-raised" disabled>
+			<i class="mdui-icon mdui-icon-left material-icons">
+				arrow_back
+			</i>
+			{{ lang.post_buttons.old }}
+		</button>
+	</div>
+	{% endif %}
+	{% if page.next.url %}
+	<div class="mdui-col">
+		<a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}">
+			<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent"
+			mdui-tooltip="{content: '{{page.next.title}}'}">
+				<i class="mdui-icon mdui-icon-right material-icons">
+					arrow_forward
+				</i>
+				{{ lang.post_buttons.new }}
+			</button>
+		</a>
+	</div>
+	{% else %}
+	<div class="mdui-col">
+		<button class="mdui-btn mdui-btn-raised" disabled>
+			<i class="mdui-icon mdui-icon-right material-icons">
+				arrow_forward
+			</i>
+			{{ lang.post_buttons.new }}
+		</button>
+	</div>
+	{% endif %}
+</div>
+<div class="mdui-divider"></div>

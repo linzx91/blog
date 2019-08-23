@@ -1,0 +1,110 @@
+<style>
+.license-container {
+	display:flex;
+	flex-flow:row nowrap;
+	justify-content:center
+}
+.license-card {
+	border-radius:10px;
+	box-shadow:0 1px 2px 0 rgba(0,0,0,.3),0 2px 4px 0 rgba(0,0,0,.2),0 4px 8px 0 rgba(0,0,0,.1);
+	overflow:hidden;
+	margin-top:32px;
+	margin-bottom:32px
+}
+.license-card-header {
+	height:26px;
+	display:flex;
+	align-items:center;
+	background:-webkit-linear-gradient(left top,#e5e5e5,#dcdcdc);
+	background:-o-linear-gradient(bottom right,#e5e5e5,#dcdcdc);
+	background:-moz-linear-gradient(bottom right,#e5e5e5,#dcdcdc);
+	background:linear-gradient(to bottom right,#e5e5e5,#dcdcdc)
+}
+.license-card-header .red-button {
+	width:10px;
+	height:10px;
+	margin-left:12px;
+	border-radius:100%;
+	border:1px solid #e64344;
+	background-color:#ff5d5b
+}
+.license-card-header .yellow-button {
+	width:10px;
+	height:10px;
+	margin-left:8px;
+	border-radius:100%;
+	border:1px solid #e3a041;
+	background-color:#ffbc4c
+}
+.license-card-header .green-button {
+	width:10px;
+	height:10px;
+	margin-left:8px;
+	border-radius:100%;
+	border:1px solid #13ad46;
+	background-color:#00c956
+}
+.license-card-content {
+	color:#f8f8f2;
+	text-shadow:0 1px rgba(0,0,0,.3);
+	padding:12px;
+	background-color:#272822;
+	font-size:12px
+}
+.license-card-content .cursor:before {
+	opacity:0;
+	content:"|";
+	color:#f8f8f2;
+	text-shadow:0 1px rgba(0,0,0,.3);
+	font-size:14px;
+	font-weight:700;
+	-webkit-animation:blink 0.8s infinite;
+	animation:blink 0.8s infinite
+}
+@-webkit-keyframes blink {
+	0% {opacity:0}
+	50% {opacity:1}
+	100% {opacity:0}
+}
+@keyframes blink {
+	0% {opacity:0}
+	50% {opacity:1}
+	100% {opacity:0}
+}
+.license-logo {
+	height:22px;
+	width:94px;
+	background-image:url(https://aligege-1259468288.file.myqcloud.com/svgs/cc-by-nc.svg);
+	border-radius:2px;
+	box-shadow:0 1px 2px 0 rgba(0,0,0,.3);
+	background-size:contain;
+	background-repeat:no-repeat
+}
+.license-logo:hover {
+	cursor:pointer;
+	transition:filter .3s;
+	filter:brightness(1.1) contrast(110%)
+}
+</style>
+<div class="license-container animated bounceIn delay-2s">
+	<div class="license-card mdui-typo">
+		<div class="license-card-header">
+			<div class="red-button"></div>
+			<div class="yellow-button"></div>
+			<div class="green-button"></div>
+		</div>
+		<div class="license-card-content">
+			<p>
+				本文遵循
+				<a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+					Attribution-NonCommercial 4.0 International
+				</a>
+				许可协议。
+				<br>
+				转载需注明出处，且禁止用于商业目的。
+				<span class="cursor"></span>
+			</p>
+			<div class="license-logo" mdui-tooltip="{content: '<center>署名-非商业性使用 4.0 国际许可协议<br>(CC BY-NC 4.0)</center>'}" onclick="window.open('http://creativecommons.org/licenses/by-nc/4.0/')"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,130 @@
+<style>
+.avatar {
+	width: 96px;
+	height: 96px;
+	background-color: white;
+	display: block;
+	box-sizing: border-box;
+	border-radius: 100%;
+	opacity: 1;
+	cursor: pointer;
+	overflow: hidden;
+	display: inline;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,.3),0 2px 4px 0 rgba(0,0,0,.2),0 4px 8px 0 rgba(0,0,0,.1);
+	margin-top: 20px;
+}
+
+.name {
+	color: black!important;
+	font-size: 40px!important;
+	font-weight: bold;
+}
+
+.title {
+	padding-left: 16px!important;
+	padding-top: 16px!important;
+	size: 12px!important;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.primary-title {
+	color: black!important;
+}
+
+.padding-bottom-8px {
+	padding-bottom: 8px!important;
+}
+
+.padding-bottom-16px {
+	padding-bottom: 16px!important;
+}
+
+.k-post-media {
+	display: block;
+	cursor: pointer;
+	max-height: 250px;
+	min-height: 250px;
+	height: 250px;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-color: #303033;
+}
+</style>
+<body>
+	<div class="mdui-container">
+		<div class="k-posts-list"></div>
+		<div class="mdui-row">
+			<div class="mdui-col-sm-12 mdui-col-md-9">
+				<div class="animated slideInDown mdui-card mdui-shadow-{{site.data.site.card.card_shadow}} {% if site.data.site.card.card_hoverable == true %}mdui-hoverable{% endif %}">
+					<div class="mdui-card-primary-title title">
+						关于
+					</div>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<a href="{{site.data.about.header.siteurl}}" target="_blank">
+						<img class="animated rotateIn delay-1s avatar mdui-center" src="{{site.data.about.header.favicon}}"
+						/>
+					</a>
+					<div class="mdui-card-primary">
+						<h1 class="animated zoomIn delay-1s padding-bottom-8px mdui-card-primary-title name mdui-text-center">
+							<a href="{{site.data.about.header.siteurl}}" target="_blank">
+								<font color="black">
+									{{site.data.about.header.name}}
+								</font>
+							</a>
+						</h1>
+						<div class="animated zoomIn delay-2s padding-bottom-8px primary-title mdui-card-primary-subtitle mdui-text-center">
+							<a href="{{site.data.about.header.siteurl}}" target="_blank">
+								<font color="black">
+									{{site.data.about.header.introduction}}
+								</font>
+							</a>
+						</div>
+					</div>
+				</div>
+				</br>
+				</br>
+				{% if site.data.about.photo.photo == true %}
+				<div class="animated slideInUp mdui-card mdui-shadow-{{site.data.site.card.card_shadow}} {% if site.data.site.card.card_hoverable == true %}mdui-hoverable{% endif %}">
+					<div class="mdui-card-primary-title title">
+						相册
+					</div>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<div class="mdui-col-md-12 mdui-col-sm-12">
+						{% for picture in site.data.about.photo.pictures %}
+						<div class="padding-bottom-16px mdui-col-md-4 mdui-col-sm-6">
+							<div class="animated flipInX delay-1s mdui-card mdui-shadow-2">
+								<div class="mdui-card-media k-post-media lazy" data-original="{{picture}}">
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						<div class="padding-bottom-8px">
+						</div>
+					</div>
+				</div>
+				{% else %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% include content/component/lazyload.html %}
+</body>

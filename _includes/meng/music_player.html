@@ -1,0 +1,234 @@
+{% assign meting = site.data.meng.music_player %}
+<style>
+.music-card {
+	position:fixed;
+	top:20%;
+	left:0;
+	display:flex;
+	flex-flow:row nowrap;
+	justify-content:flex-start;
+	z-index:999;
+	transition:transform .7s ease
+}
+.aplayer {
+	background:#fff;
+	margin:0 auto;
+	box-shadow:1px 1px 2px 0 rgba(0,0,0,.3),2px 2px 4px 0 rgba(0,0,0,.2),4px 4px 8px 0 rgba(0,0,0,.1);
+	border-radius:0;
+	overflow:hidden;
+	-webkit-overflow-scrolling:touch;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	line-height:initial;
+	position:relative
+}
+@media screen and (min-width:420px) {
+	.aplayer {
+		width:360px
+	}
+}
+@media screen and (min-width:360px) and (max-width:419px) {
+	.aplayer {
+		width:320px
+	}
+}
+@media screen and (min-width:320px) and (max-width:359px) {
+	.aplayer {
+		width:280px
+	}
+}
+@media screen and (max-width:319px) {
+	.aplayer {
+		width:auto
+	}
+}
+.aplayer.aplayer-withlist .aplayer-info {
+	border-bottom:none
+}
+.aplayer .aplayer-body {
+	position:relative;
+	box-shadow:0 1px 2px 0 rgba(0,0,0,.2),0 2px 5px 0 rgba(0,0,0,.1)
+}
+.aplayer .aplayer-list ol li {
+	position:relative;
+	height:32px;
+	line-height:32px;
+	padding:0 15px;
+	font-size:12px;
+	border-top:1px solid #e9e9e9;
+	cursor:pointer;
+	transition:all .7s ease;
+	overflow:hidden;
+	margin:0
+}
+.aplayer .aplayer-list ol li:hover {
+	background:linear-gradient(to right,#e9e9e9,#f0f0f0,#f9f9f9,#fefefe)
+}
+.aplayer .aplayer-list ol li:after {
+	content:"";
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	pointer-events:none;
+	background-image:radial-gradient(circle, #878787 10%, transparent 10.01%);
+	background-repeat:no-repeat;
+	background-position:50%;
+	transform:scale(10, 10);
+	opacity:0;
+	transition:transform .7s, opacity 1s
+}
+.aplayer .aplayer-list ol li:active:after {
+	transform:scale(0, 0);
+	opacity:.2;
+	transition:0s
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+	background:linear-gradient(to right,#e9e9e9,#f0f0f0,#f9f9f9,#fefefe)
+}
+.music-btn {
+	flex:none;
+	width:20px;
+	height:90px;
+	position:relative;
+	overflow:hidden;
+	right:0;
+	bottom:0;
+	box-sizing:border-box;
+	box-shadow:1px 1px 2px 0 rgba(0,0,0,.32),2px 2px 4px 0 rgba(0,0,0,.22),4px 4px 8px 0 rgba(0,0,0,.12);
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	cursor:pointer;
+	background:{{meting.btn_color}};
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.music-btn .btn-indicator {
+	width:12px;
+	height:12px;
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTIuMDA0IDQ5Mi4wMDQiPjxwYXRoIGQ9Ik0zODIuNjc4IDIyNi44MDRMMTYzLjczIDcuODZDMTU4LjY2NiAyLjc5MiAxNTEuOTA2IDAgMTQ0LjY5OCAwcy0xMy45NjggMi43OTItMTkuMDMyIDcuODZsLTE2LjEyNCAxNi4xMmMtMTAuNDkyIDEwLjUwNC0xMC40OTIgMjcuNTc2IDAgMzguMDY0TDI5My4zOTggMjQ1LjlsLTE4NC4wNiAxODQuMDZjLTUuMDY0IDUuMDY4LTcuODYgMTEuODI0LTcuODYgMTkuMDI4IDAgNy4yMTIgMi43OTYgMTMuOTY4IDcuODYgMTkuMDRsMTYuMTI0IDE2LjExNmM1LjA2OCA1LjA2OCAxMS44MjQgNy44NiAxOS4wMzIgNy44NnMxMy45NjgtMi43OTIgMTkuMDMyLTcuODZMMzgyLjY3OCAyNjVjNS4wNzYtNS4wODQgNy44NjQtMTEuODcyIDcuODQ4LTE5LjA4OC4wMTYtNy4yNDQtMi43NzItMTQuMDI4LTcuODQ4LTE5LjEwOHoiIGZpbGw9IiNkZWRlZGUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==');
+	transform:rotate(180deg);
+	transition:transform .7s ease
+}
+@media screen and (max-width:600px) {
+	.music-card {
+		transform:translateX(calc(-100% + 20px))
+	}
+	.music-btn .btn-indicator {
+		transform:rotate(0deg)
+	}
+}
+@media screen and (max-height:600px) {
+	.music-card {
+		top:64px;
+	}
+}
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<div class="music-card">
+	<meting-js
+		server="{{meting.server}}"
+		type="{{meting.type}}"
+		id="{{meting.id}}"
+		autoplay="{{meting.autoplay}}"
+		theme="{{meting.theme}}"
+		loop="{{meting.loop}}"
+		order="{{meting.order}}"
+		preload="{{meting.preload}}"
+		volume="{{meting.volume}}"
+		mutex="{{meting.mutex}}"
+		list-folded="true"
+		list-max-height="296px"
+		storage-name="metingjs">
+	</meting-js>
+	<div class="music-btn">
+		<div class="btn-indicator"></div>
+	</div>
+</div>
+<script type="text/javascript">
+(function($) {
+  $("head").append("<link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'>");
+  $(document).ready(function() {
+    $(".aplayer-list").addClass("aplayer-list-hide");
+    if ($(window).width() <= 600) {
+      var flag = true;
+    } else {
+      var flag = false;
+    }
+    $(".music-btn").on("click", function(e) {
+      if ($(this).find("#wave").length) {
+        $(this)
+          .find("#wave")
+          .remove();
+      }
+      $(this).append("<div id='wave'></div>");
+      var wave = $(this).find("#wave");
+      wave.css({
+        display: "block",
+        background: "{{meting.ripple_color}}",
+        "border-radius": "50%",
+        position: "absolute",
+        transform: "scale(0)",
+        opacity: "1",
+        transition: "all 0.7s",
+        "z-index": "1",
+        overflow: "hidden",
+        "pointer-events": "none"
+      });
+      waveWidth = parseInt($(this).outerWidth());
+      waveHeight = parseInt($(this).outerHeight());
+      if (waveWidth < waveHeight) {
+        var R = waveHeight;
+      } else {
+        var R = waveWidth;
+      }
+      wave.css({
+        width: R * 2 + "px",
+        height: R * 2 + "px",
+        top: e.pageY - $(this).offset().top - R + "px",
+        left: e.pageX - $(this).offset().left - R + "px",
+        transform: "scale(1)",
+        opacity: "0"
+      });
+      if (flag == false) {
+        $(".music-card").css("transform", "translateX(calc(-100% + 20px))");
+        $(".btn-indicator").css("transform", "rotate(0deg)");
+        flag = true;
+      } else if (flag == true) {
+        $(".music-card").css("transform", "translateX(0px)");
+        $(".btn-indicator").css("transform", "rotate(180deg)");
+        flag = false;
+      }
+      if (!$(".aplayer-list").hasClass("aplayer-list-hide")) {
+        $(".aplayer-list").addClass("aplayer-list-hide");
+      }
+    });
+  });
+})(jQuery);
+!(function() {
+  document.addEventListener(
+    "visibilitychange",
+    function() {
+      if (document.visibilityState == "hidden") {
+        ap.pause();
+      }
+      if (document.visibilityState == "visible") {
+        ap.play();
+      }
+    },
+    false
+  );
+})();
+</script>

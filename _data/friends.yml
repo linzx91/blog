@@ -1,0 +1,14 @@
+head_card:
+    img_url: "https://aligege-1259468288.file.myqcloud.com/img/bg-friend.jpg"
+    title: "友情链接"
+    content: "子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？」"
+
+links:
+  - name: KeJun
+    image: https://aligege-1259468288.file.myqcloud.com/img/kejun-favicon.png
+    url: https://kejun.me
+    describe: 二次元智障
+  - name: MDUI
+    image: https://aligege-1259468288.file.myqcloud.com/img/mdui-favicon.jpg
+    url: https://www.mdui.org/
+    describe: 一套用于开发 Material Design 网页的前端框架

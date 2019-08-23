@@ -1,0 +1,68 @@
+head: 
+   favicon: "/assets/images/favicon.ico" #  the favicon
+   high_res_favicon: "/assets/images/favicon_hd.ico" #  the favicon using high quality format
+   apple_touch_icon: "/assets/images/touch/icon-1024x1024.jpeg" # the iOS Home button icon
+   keywords: "个人博客" #  the site keywords
+
+uiux:
+   android_chrome_color: "rgba(245, 245, 245, 0.8)" #  the color of the Chrome address bar
+   nprogress_color: "#3f51b5" #  the color of the top loading progress bar
+   nprogress_buffer: 800 # the top loading progress bar buffers
+   meng: true # meng
+
+background: 
+   purecolor: "#efeef3" # the background color
+
+img: 
+   avatar: "/assets/images/avatar.png" # your avatar
+
+card: 
+   card_shadow: 2 # card shadow (0-24), 0 is not displayed
+   card_hoverable: true # When the hover to deepen the shadow
+
+many_authors: false
+
+sns_share: # SNS Share Switch
+   twitter: true
+   facebook: true
+   googleplus: false
+   weibo: true
+   linkedin: false
+   qq: true
+   telegram: true
+  
+comment:
+  used: "disqus" # disqus,valine,gitalk
+  # disqus config
+  disqus_shortname: "aligegeblog" # Your disqus 
+  disqus_button: true # disqus load button
+  disqus_proxy: false # # disqus proxy(Do not use)
+  disqus_proxy_url: "" # (Do not use)
+  disqus_api_key: "" # (Do not use)
+  #valine config
+  valine_notify: false #mail notifier
+  valine_verify: false #validation code
+  valine_app_id: 'LbNmV7xclW3Oox6EKv7RRaT7-9Nh9j0Va'
+  valine_app_key: 'iHpgXhiVmUvE8A8T2IpbD3ao'
+  valine_placeholder: "✎ 写评论…"
+  # gitalk config
+  gitalk_clientID: "16d025dbbe50852fce5b"
+  gitalk_clientSecret: "00b877b3950bbd0657f373444a5de9b40a167356"
+  gitalk_repo: "linzx91.github.io"
+  gitalk_owner: "linzx91"
+  gitalk_admin: "linzx91"
+
+google_analytics: "UA-142139913-1"  # google analytics code
+
+baidu_site_verification: ""  # baidu site verification code
+google_site_verification: "XUXuiWEysvTUtgmy7rMLr3id1e0wP1GW1jR1FauzppU"  # google search console verification code
+
+baidu_auto_push: true  # if you used baidu auto push to commit links
+
+lang: "zh-CN"  # lang
+
+deploy: "coding" # if you used coding pages
+
+custom_css: "custom.css" # Use the assets/css/custom.css
+
+custom_js: "custom.js" # Use the assets/js/custom.js
