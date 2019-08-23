@@ -61,7 +61,7 @@ baidu_auto_push: true  # if you used baidu auto push to commit links
 
 lang: "zh-CN"  # lang
 
-deploy: "coding" # if you used coding pages
+deploy: "" # if you used coding pages
 
 custom_css: "custom.css" # Use the assets/css/custom.css
 
