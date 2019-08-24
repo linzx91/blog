@@ -28,15 +28,17 @@
 <script>
 (function($) {
   $("#load-gitalk").on("click", function() {
-    var gitalkStyle = "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css";
+    if ($("head:has(#gitalk-style)").length == 0) {
+      var gitalkStyle = $("<link>");
+      gitalkStyle.attr({
+        id: "gitalk-style",
+        rel: "stylesheet",
+        type: "text/css",
+        href: "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css"
+      });
+      $(gitalkStyle).appendTo("head");
+    }
     var gitalkScript = "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js";
-    $(this).before("<link id='gitalk-style'>");
-    var gitalkLink = $(this).prev("#gitalk-style");
-    gitalkLink.attr({
-      rel: "stylesheet",
-      type: "text/css",
-      href: gitalkStyle
-    });
     $.getScript(gitalkScript, function() {
       var gitalk = new Gitalk({
         clientID: "{{site.data.site.comment.gitalk_clientID}}",

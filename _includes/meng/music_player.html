@@ -159,7 +159,16 @@
 </div>
 <script type="text/javascript">
 (function($) {
-  $("head").append("<link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'>");
+  if ($("head:has(#aplayer-style)").length == 0) {
+    var aplayerStyle = $("<link>");
+    aplayerStyle.attr({
+      id: "aplayer-style",
+      rel: "stylesheet",
+      type: "text/css",
+      href: "//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"
+    });
+    $(aplayerStyle).appendTo("head");
+  }
   $(document).ready(function() {
     $(".aplayer-list").addClass("aplayer-list-hide");
     if ($(window).width() <= 600) {

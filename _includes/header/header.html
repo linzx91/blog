@@ -18,8 +18,9 @@ header {
 }
 .k-nav-search-card {
 	position:fixed;
-	width:268px;
-	z-index:9999
+	width:260px;
+	z-index:9999;
+	margin-top:10px;
 }
 .drawer-menu {
 	background-color:#fff
@@ -83,7 +84,7 @@ header {
 			</i>
 		</a>
 		<a href="{{ '/' | prepend: site.baseurl}}" class="mdui-typo-title">
-			{{site.title | upcase }}
+			{{ site.title | upcase }}
 		</a>
 		<div class="mdui-toolbar-spacer">
 		</div>
@@ -91,7 +92,7 @@ header {
 			<div class="k-header-menus" id="k-menus">
 				{% for menu in site.data.menus %}
 				{% if menu.name != "navSearch" %}
-				<a href="{{menu.url | prepend: site.baseurl }}" class="mdui-btn mdui-ripple {% if menu.url  == page.url %}mdui-list-item-active{% endif %}">
+				<a href="{{ menu.url | prepend: site.baseurl }}" class="mdui-btn mdui-ripple {% if menu.url  == page.url %}mdui-list-item-active{% endif %}">
 					{{menu.name}}
 				</a>
 				{% endif %}
@@ -193,9 +194,9 @@ html:t("<a/>",{href:"javascript:;",html:s,click:function(t){t.preventDefault(),i
             },
             selector: {
                 container: "typeahead__container",
-                result: " mdui-card k-nav-search-card",
+                result: "mdui-card k-nav-search-card",
                 list: "mdui-list",
-                item: "mdui-list-item"
+                item: "mdui-list-item mdui-ripple"
             },
             callback: {
                 onClick: function(node, a, item, event) {},
@@ -203,8 +204,8 @@ html:t("<a/>",{href:"javascript:;",html:s,click:function(t){t.preventDefault(),i
                     a.find('a').attr('href', urls[item.display])
                 }
             }
-        })
-    })
+        });
+    });
 })(jQuery);
 </script>
 {% endif %}

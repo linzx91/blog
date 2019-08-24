@@ -1,16 +1,27 @@
-{% if site.data.site.custom_css!=""  %}
+{% if site.data.site.custom_css != "" %}
 {% assign css = site.data.site.custom_css %}
 <script type="text/javascript">
 (function($) {
-    $('head').append('<link rel="stylesheet" type="text/css" href="{{ '/assets/css/' | prepend: site.baseurl | append: css }}">');
+  var customCss = $("<link>");
+  customCss.attr({
+    rel: "stylesheet",
+    type: "text/css",
+    href: "{{ '/assets/css/' | prepend: site.baseurl | append: css }}"
+  });
+  $(customCss).appendTo("head");
 })(jQuery);
 </script>
 {% endif %}
-{% if site.data.site.custom_js!=""  %}
+{% if site.data.site.custom_js != "" %}
 {% assign js = site.data.site.custom_js %}
 <script type="text/javascript">
-(function($) {
-    $.getScript('{{ '/assets/js/' | prepend: site.baseurl | append: js }}');
-})(jQuery);
+$(document).ready(function() {
+  var customJs = $("<script>");
+  customJs.attr({
+    type: "text/javascript",
+    src: "{{ '/assets/js/' | prepend: site.baseurl | append: js }}"
+  });
+  $(customJs).appendTo("body");
+});
 </script>
 {% endif %}
