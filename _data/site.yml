@@ -32,7 +32,7 @@ sns_share: # SNS Share Switch
    telegram: true
   
 comment:
-  used: "disqus" # disqus,valine,gitalk
+  used: "gitalk" # disqus,valine,gitalk
   # disqus config
   disqus_shortname: "aligegeblog" # Your disqus 
   disqus_button: true # disqus load button
@@ -48,7 +48,7 @@ comment:
   # gitalk config
   gitalk_clientID: "16d025dbbe50852fce5b"
   gitalk_clientSecret: "00b877b3950bbd0657f373444a5de9b40a167356"
-  gitalk_repo: "linzx91.github.io"
+  gitalk_repo: "blog"
   gitalk_owner: "linzx91"
   gitalk_admin: "linzx91"
 
