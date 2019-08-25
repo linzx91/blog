@@ -20,7 +20,13 @@ header {
 	position:fixed;
 	width:260px;
 	z-index:9999;
-	margin-top:10px;
+	margin-top:10px
+}
+@media screen and (min-width:600px) {
+	.k-nav-search-card {
+		margin-top:16px;
+		right:16px
+	}
 }
 .drawer-menu {
 	background-color:#fff
@@ -160,17 +166,17 @@ html:t("<a/>",{href:"javascript:;",html:s,click:function(t){t.preventDefault(),i
 <script type="text/javascript">
 (function($) {
     $('.k-navsearch-close').on('click', function() {
-        $('.k-nav-search-card').hide()
+        $('.k-nav-search-card').slideUp();
     });
     $('.k-navsearch-open').on('click', function() {
-        $('.k-nav-search-card').show()
+        $('.k-nav-search-card').slideDown();
     });
     $('#k-menu').on('click', function(e) {
-        $('.k-nav-search-card').hide()
+        $('.k-nav-search-card').slideUp();
     });
     $('#k-menu .mdui-textfield').on('click', function(e) {
         e.stopPropagation();
-        $('.k-nav-search-card').show()
+        $('.k-nav-search-card').slideDown();
     });
     $(window).scroll(function() {
         $('.k-navsearch-close').click()
