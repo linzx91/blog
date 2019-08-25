@@ -1,6 +1,6 @@
 {
-  "name": "ALIN'S SITE",
-  "short_name": "Alin's Site",
+  "name": "ALIN'S BLOG",
+  "short_name": "Alin's Blog",
   "icons": [{
         "src": "assets/images/touch/icon-128x128.png",
         "sizes": "128x128",
