@@ -2,7 +2,7 @@
 <style>
 .music-card {
 	position:fixed;
-	top:20%;
+	top:calc((100vh - 386px) / 2);
 	left:0;
 	display:flex;
 	flex-flow:row nowrap;
@@ -226,7 +226,7 @@
     });
   });
 })(jQuery);
-!(function() {
+(function() {
   document.addEventListener(
     "visibilitychange",
     function() {
