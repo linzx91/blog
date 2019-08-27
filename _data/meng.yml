@@ -28,6 +28,9 @@ background: # Meng background
   transparent_menu: true
   text_color: '#1a1a1a'
 
+particles: # Mouse with a bunch of particles
+  switch: true
+
 card: # Meng card
   switch: true
   background_color: 'rgba(255, 255, 255, 0.8)'
