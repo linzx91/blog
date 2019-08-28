@@ -4,15 +4,7 @@
 {% assign lang = site.data.lang[site.data.site.lang] %}
 {% endif %}
 <style>
-#load-gitalk {
-	height:40px;
-	line-height:40px;
-	color:#424242;
-	font-size:1.125em;
-	font-weight:500;
-	transition:height .5s ease
-}
-.not-open-comment {
+#not-open-comment {
 	width:100%;
 	height:32px;
 	line-height:32px;
@@ -21,14 +13,24 @@
 	font-size:0.875em;
 	font-weight:500
 }
-.gt-avatar.gt-comment-avatar {
+#load-gitalk {
+	height:40px;
+	line-height:40px;
+	color:#424242;
+	font-size:1.125em;
+	font-weight:500;
+	transition:height .5s ease
+}
+.gt-avatar {
 	border-radius:50%;
 	opacity:1;
 	overflow:hidden
 }
 </style>
-{% if page.key %}
-<button id="load-gitalk" class="mdui-btn mdui-btn-block">{{lang.post.load_gitalk_comments}}</button>
+{% if page.key == "" or page.key == null %}
+<div id="not-open-comment">{{ lang.post.not_open_comment }}</div>
+{% else %}
+<button id="load-gitalk" class="mdui-btn mdui-btn-block">{{ lang.post.load_gitalk_comments }}</button>
 <div id="gitalk-container" style="padding: 0 16px 8px; display: none;"></div>
 <script>
 (function($) {
@@ -46,11 +48,11 @@
     var gitalkScript = "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js";
     $.getScript(gitalkScript, function() {
       var gitalk = new Gitalk({
-        clientID: "{{site.data.site.comment.gitalk_clientID}}",
-        clientSecret: "{{site.data.site.comment.gitalk_clientSecret}}",
-        repo: "{{site.data.site.comment.gitalk_repo}}",
-        owner: "{{site.data.site.comment.gitalk_owner}}",
-        admin: ["{{site.data.site.comment.gitalk_admin}}"],
+        clientID: "{{ site.data.site.comment.gitalk_clientID }}",
+        clientSecret: "{{ site.data.site.comment.gitalk_clientSecret }}",
+        repo: "{{ site.data.site.comment.gitalk_repo }}",
+        owner: "{{ site.data.site.comment.gitalk_owner }}",
+        admin: ["{{ site.data.site.comment.gitalk_admin }}"],
         id: "{{ page.key }}",
         distractionFreeMode: false
       });
@@ -64,6 +66,4 @@
   });
 })(jQuery);
 </script>
-{% else %}
-<div class="not-open-comment">{{lang.post.not_open_comment}}</div>
 {% endif %}
