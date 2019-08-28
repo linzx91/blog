@@ -1,7 +1,7 @@
 {% if page.mathjax == true %}
 <script type="text/javascript">
 (function($) {
-  var mathJs = "//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  var mathJs = "//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
   $.getScript(mathJs, function() {
       MathJax.Hub.Config({
         TeX: {
@@ -21,5 +21,3 @@
 })(jQuery);
 </script>
 {% endif %}
-
-<!--//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML-->
