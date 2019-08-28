@@ -1,22 +1,25 @@
 {% if page.mathjax == true %}
 <script type="text/javascript">
 (function($) {
-  $.getScript("//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function() {
-    MathJax.Hub.Config({
-      TeX: {
-        equationNumbers: {
-          autoNumber: "AMS"
+  var mathJs = "//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  $.getScript(mathJs, function() {
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [["$", "$"]],
+          displayMath: [["$$", "$$"]],
+          processEscapes: true
         }
-      },
-      tex2jax: {
-        inlineMath: [ ['$','$'] ],
-        displayMath: [ ['$$','$$'] ],
-        processEscapes: true,
-      }
-    });
-    var math = $(".container").find(".content")[0];
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+      });
+      var math = $(".container").find(".content")[0];
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
   });
 })(jQuery);
 </script>
 {% endif %}
+
+<!--//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML-->
