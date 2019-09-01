@@ -6,6 +6,8 @@ categories: Ruleset
 tags: TikTok Surge Rule
 img: https://aligege-1259468288.file.myqcloud.com/img/2019-06-16-tiktok-unlock.gif
 key: 2019-06-16-tiktok-unlock
+password: 123456
+prompt: 密码：123456
 themecolor: "#fff"
 themetextcolor: "#000"
 describe: 

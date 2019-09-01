@@ -29,7 +29,7 @@ background: # Meng background
   text_color: '#1a1a1a'
 
 particles: # Mouse with a bunch of particles
-  switch: true
+  switch: false
 
 card: # Meng card
   switch: true
