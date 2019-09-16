@@ -7,21 +7,19 @@
     rel: "stylesheet",
     type: "text/css",
     href: "{{ '/assets/css/' | prepend: site.baseurl | append: css }}"
-  });
-  $(customCss).appendTo("head");
+  }).appendTo("head");
 })(jQuery);
 </script>
 {% endif %}
 {% if site.data.site.custom_js != "" %}
 {% assign js = site.data.site.custom_js %}
 <script type="text/javascript">
-$(document).ready(function() {
+(function($) {
   var customJs = $("<script>");
   customJs.attr({
     type: "text/javascript",
     src: "{{ '/assets/js/' | prepend: site.baseurl | append: js }}"
-  });
-  $(customJs).appendTo("body");
-});
+  }).appendTo("head");
+})(jQuery);
 </script>
 {% endif %}
