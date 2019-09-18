@@ -63,17 +63,25 @@ body {
 	display:flex;
 	min-height:100vh;
 	flex-direction:column;
+	-webkit-overflow-scrolling:touch;
 	background-color:{{site.data.site.background.purecolor}};
 	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif
 }
 ::-webkit-scrollbar {
-	width:10px
+	width:8px
 }
 ::-webkit-scrollbar-thumb {
-	background:rgba(0,0,0,.1)
+	border-radius:10px;
+	background:rgba(0,0,0,.2)
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background:rgba(0,0,255,.4)
+	background:rgba(0,0,0,.1)
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+	background-color:rgba(0,0,0,.3)
+}
+::-webkit-scrollbar-thumb:vertical:active {
+	background-color:rgba(0,0,0,.7)
 }
 .container {
 	flex:1 0 auto
