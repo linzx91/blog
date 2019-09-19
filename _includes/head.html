@@ -13,12 +13,6 @@
 {% if site.data.site.google_site_verification != "" %}
 <meta name="google-site-verification" content="{{ site.data.site.google_site_verification }}">
 {% endif %}
-{% if site.data.site.uiux.meng == true %}
-{% if site.data.meng.animation.switch
-== true %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
-{% endif %}
-{% endif %}
 <link rel="shortcut icon" href="{{ site.data.site.head.favicon }}">
 <link rel="icon" sizes="192x192" href="{{ site.data.site.head.high_res_favicon }}">
 <link rel="apple-touch-icon" href="{{ site.data.site.head.apple_touch_icon }}">
@@ -35,27 +29,32 @@
 <link rel="manifest" href="{{ '/manifest.json' | prepend: site.baseurl }}">
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css" onload="this.rel='stylesheet'">
 <link rel="preload" as="style" href="{{ '/assets/css/global.css' | prepend: site.baseurl }}" onload="this.rel='stylesheet'">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script type="text/javascript" src="{{ '/assets/js/History.js' | prepend: site.baseurl }}"></script>
+{% if site.data.site.uiux.meng == true %}
+{% if site.data.meng.animation.switch
+== true %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+{% endif %}
+{% endif %}
 {% include component/nprogress.html %}
 <script type="text/javascript">
 $(document).ready(function() {
-  var defaultTitle = document.title;
-  var tagid;
-  var siteUrl = document.location.protocol + "//" + (document.location.hostname || document.location.host);
-  var disqusstatus = {
-    flag: false
-  };
-  var inst = new mdui.Drawer("#k-menu");
-  $(document).delegate('a[href^="/"][target!="_blank"], a[href^="' + siteUrl + '"]', "click", function(e) {
+  var defaultTitle = document.title,
+      tagid,
+      siteUrl = document.location.protocol + "//" + (document.location.hostname || document.location.host),
+      inst = new mdui.Drawer("#k-menu"),
+      disqusstatus = {
+        flag: false
+      };
+  $(document).delegate("a[href^='/'][target!='_blank'], a[href^='" + siteUrl + "']", "click", function(e) {
       if (e.currentTarget.id.indexOf("tag_") === 0) {
         tagid = e.currentTarget.id.replace(/tag_/, "");
       }
       e.preventDefault();
       History.pushState({}, "", this.pathname);
-    }
-  );
+  });
   History.Adapter.bind(window, "statechange", function() {
     var State = History.getState();
     $.get(State.url, function(data) {
@@ -76,7 +75,10 @@ $(document).ready(function() {
             .find("#k-mobile-menus")
             .children()
         );
-        $(".content").css({ top: "50px", position: "relative" });
+        $(".content").css({
+          top: "50px",
+          position: "relative"
+        });
         $(".mdui-container").fadeIn();
         $(".content").animate({
           top: "0px"

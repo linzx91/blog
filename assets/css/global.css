@@ -68,10 +68,10 @@ body {
 	font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif
 }
 ::-webkit-scrollbar {
-	width:8px
+	width:8px;
 }
 ::-webkit-scrollbar-thumb {
-	border-radius:10px;
+	border-radius:8px;
 	background:rgba(0,0,0,.2)
 }
 ::-webkit-scrollbar-thumb:window-inactive {
