@@ -7,49 +7,51 @@
 	display:flex;
 	flex-flow:row nowrap;
 	justify-content:flex-start;
-	z-index:999;
+	z-index:1099;
 	transition:transform .7s ease
 }
 .aplayer {
+	line-height:initial;
+	position:relative;
+	margin:0;
 	background:#fff;
-	margin:0 auto;
 	box-shadow:1px 1px 2px 0 rgba(0,0,0,.3),2px 2px 4px 0 rgba(0,0,0,.2),4px 4px 8px 0 rgba(0,0,0,.1);
 	border-radius:0;
-	overflow:hidden;
-	-webkit-overflow-scrolling:touch;
 	-webkit-user-select:none;
 	-moz-user-select:none;
 	-ms-user-select:none;
 	user-select:none;
-	line-height:initial;
-	position:relative
+	overflow:hidden
 }
-@media screen and (min-width:420px) {
+@media screen and (min-width:401px) {
 	.aplayer {
 		width:360px
 	}
 }
-@media screen and (min-width:360px) and (max-width:419px) {
+@media screen and (min-width:361px) and (max-width:400px) {
 	.aplayer {
 		width:320px
 	}
 }
-@media screen and (min-width:320px) and (max-width:359px) {
+@media screen and (min-width:321px) and (max-width:360px) {
 	.aplayer {
 		width:280px
 	}
 }
-@media screen and (max-width:319px) {
+@media screen and (max-width:320px) {
 	.aplayer {
 		width:auto
 	}
 }
-.aplayer.aplayer-withlist .aplayer-info {
-	border-bottom:none
-}
 .aplayer .aplayer-body {
 	position:relative;
 	box-shadow:0 1px 2px 0 rgba(0,0,0,.2),0 2px 5px 0 rgba(0,0,0,.1)
+}
+.aplayer.aplayer-withlist .aplayer-info {
+	border-bottom:none
+}
+.aplayer .aplayer-list {
+	-webkit-overflow-scrolling:touch;
 }
 .aplayer .aplayer-list ol li {
 	position:relative;
@@ -91,7 +93,6 @@
 	background:linear-gradient(to right,#e9e9e9,#f0f0f0,#f9f9f9,#fefefe)
 }
 .music-btn {
-	flex:none;
 	width:20px;
 	height:90px;
 	position:relative;
@@ -176,11 +177,9 @@
     } else {
       var flag = false;
     }
-    $(".music-btn").on("click", function(e) {
+    $(".music-btn").click(function(e) {
       if ($(this).find("#wave").length) {
-        $(this)
-          .find("#wave")
-          .remove();
+        $(this).find("#wave").remove();
       }
       $(this).append("<div id='wave'></div>");
       var wave = $(this).find("#wave");
@@ -225,8 +224,6 @@
       }
     });
   });
-})(jQuery);
-(function() {
   document.addEventListener(
     "visibilitychange",
     function() {
@@ -239,5 +236,5 @@
     },
     false
   );
-})();
+})(jQuery);
 </script>

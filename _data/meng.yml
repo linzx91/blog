@@ -53,7 +53,7 @@ animation: # animate.css, see https://github.com/daneden/animate.css
 #!!!!do not use!!!!
 
 music_player:
-  switch: true
+  switch: false
   server: "netease" # music platform: netease, tencent, kugou, xiami, baidu
   type: "playlist" # song, playlist, album, search, artist
   id: "2278690100" # song id / playlist id / album id / search keyword
