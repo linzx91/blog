@@ -34,16 +34,18 @@
 <div id="gitalk-container" style="padding: 0 16px 8px; display: none;"></div>
 <script>
 (function($) {
-  $("#load-gitalk").on("click", function() {
+  var $gtLoadButton = $("#load-gitalk"),
+      $gtContainer = $("#gitalk-container");
+  $gtLoadButton.click(function() {
     if ($("head:has(#gitalk-style)").length == 0) {
-      var gitalkStyle = $("<link>");
-      gitalkStyle.attr({
-        id: "gitalk-style",
-        rel: "stylesheet",
-        type: "text/css",
-        href: "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css"
-      });
-      $(gitalkStyle).appendTo("head");
+      var gitalkStyle = $("<link>")
+        .attr({
+          id: "gitalk-style",
+          rel: "stylesheet",
+          type: "text/css",
+          href: "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css"
+        })
+        .appendTo("head");
     }
     var gitalkScript = "//cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js";
     $.getScript(gitalkScript, function() {
@@ -56,11 +58,12 @@
         id: "{{ page.key }}",
         distractionFreeMode: false
       });
-      $("#gitalk-container").css("display", "block");
-      $("#load-gitalk").css({
-        height: "0"}, function() {
-          $(this).remove();
-      });
+      $gtContainer.css("display", "block");
+      $gtLoadButton.css({
+        height: "0"
+      }, setTimeout(function() {
+        $gtLoadButton.remove();
+      }, 500));
       gitalk.render("gitalk-container");
     });
   });
