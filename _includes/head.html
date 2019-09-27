@@ -41,14 +41,11 @@
 {% include component/nprogress.html %}
 <script type="text/javascript">
 $(document).ready(function() {
-  var defaultTitle = document.title,
-      tagid,
-      siteUrl = document.location.protocol + "//" + (document.location.hostname || document.location.host),
-      inst = new mdui.Drawer("#k-menu"),
-      disqusstatus = {
-        flag: false
-      };
-  $(document).delegate("a[href^='/'][target!='_blank'], a[href^='" + siteUrl + "']", "click", function(e) {
+  var tagid,
+      disqusstatus = {flag: false},
+      defaultTitle = document.title,
+      siteUrl = location.protocol + "//" + (location.hostname || location.host);
+  $(document).on("click", "a[href^='" + siteUrl + "'], a[href^='/'][target!='_blank']", function(e) {
       if (e.currentTarget.id.indexOf("tag_") === 0) {
         tagid = e.currentTarget.id.replace(/tag_/, "");
       }
@@ -56,12 +53,13 @@ $(document).ready(function() {
       History.pushState({}, "", this.pathname);
   });
   History.Adapter.bind(window, "statechange", function() {
-    var State = History.getState();
+    var inst = new mdui.Drawer("#k-menu"),
+        State = History.getState();
+    NProgress.start();
+    inst.close();
     $.get(State.url, function(data) {
-      NProgress.start();
-      inst.close();
       $(".mdui-tooltip").remove();
-      $(".mdui-container").fadeOut(300, function() {
+      $(".mdui-container").fadeOut(function() {
         $(".container").html($(data).find(".content"));
         document.title = data.match(/<title>(.*?)<\/title>/)[1];
         defaultTitle = document.title;

@@ -6,11 +6,29 @@ categories: Ruleset
 tags: TikTok Surge Rule
 img: https://aligege-1259468288.file.myqcloud.com/img/2019-06-16-tiktok-unlock.gif
 key: 2019-06-16-tiktok-unlock
-password: 123456
-prompt: 密码：123456
 themecolor: "#fff"
 themetextcolor: "#000"
-describe: 
+prompt:
+  password:
+    base64: "MTIzNDU2"
+  initial:
+    title: "请输入密码"
+    content: "密码是：123456"
+    btn_left: "退出"
+    href: "/"
+    btn_right: "确认"
+  correct:
+    title: "密码正确"
+    content: "恭喜你，验证成功"
+    button: "好"
+  count:
+    title: "密码错误"
+    content: "你还剩 * 次机会"
+  error:
+    title: "密码错误"
+    content: "抱歉，你已超过了输入次数"
+    button: "返回首页"
+    href: "/"
 ---
 
 > 通过 [**Surge 3 Pro**](https://nssurge.com) 的 URL Rewrite 和 MitM 来破解 TikTok 地区限制问题，让国内的用户也可以使用 TikTok（国际版抖音）。
