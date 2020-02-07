@@ -2,7 +2,7 @@
 {% assign css = site.data.site.custom_css %}
 <script type="text/javascript">
 (function($) {
-  var customCss = $("<link>");
+  let customCss = $("<link>");
   customCss.attr({
     rel: "stylesheet",
     type: "text/css",
@@ -15,7 +15,7 @@
 {% assign js = site.data.site.custom_js %}
 <script type="text/javascript">
 (function($) {
-  var customJs = $("<script>");
+  let customJs = $("<script>");
   customJs.attr({
     type: "text/javascript",
     src: "{{ '/assets/js/' | prepend: site.baseurl | append: js }}"

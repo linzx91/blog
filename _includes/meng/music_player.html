@@ -161,7 +161,7 @@
 <script type="text/javascript">
 (function($) {
   if ($("head:has(#aplayer-style)").length == 0) {
-    var aplayerStyle = $("<link>");
+    let aplayerStyle = $("<link>");
     aplayerStyle.attr({
       id: "aplayer-style",
       rel: "stylesheet",
@@ -172,52 +172,56 @@
   }
   $(document).ready(function() {
     $(".aplayer-list").addClass("aplayer-list-hide");
-    if ($(window).width() <= 600) {
-      var flag = true;
+    let flag = null;
+    if ($(window).width() >= 600) {
+      flag = true;
     } else {
-      var flag = false;
+      flag = false;
     }
     $(".music-btn").click(function(e) {
-      if ($(this).find("#wave").length) {
-        $(this).find("#wave").remove();
-      }
-      $(this).append("<div id='wave'></div>");
-      var wave = $(this).find("#wave");
-      wave.css({
-        display: "block",
-        background: "{{meting.ripple_color}}",
-        "border-radius": "50%",
+      const time = 700;
+      $(this).prop("disabled", true);
+      const wave = $("<div>").css({
         position: "absolute",
-        transform: "scale(0)",
+        display: "block",
+        zIndex: "1",
+        background: "{{meting.ripple_color}}",
         opacity: "1",
-        transition: "all 0.7s",
-        "z-index": "1",
+        borderRadius: "50%",
         overflow: "hidden",
-        "pointer-events": "none"
-      });
-      waveWidth = parseInt($(this).outerWidth());
-      waveHeight = parseInt($(this).outerHeight());
-      if (waveWidth < waveHeight) {
-        var R = waveHeight;
-      } else {
-        var R = waveWidth;
-      }
-      wave.css({
-        width: R * 2 + "px",
-        height: R * 2 + "px",
-        top: e.pageY - $(this).offset().top - R + "px",
-        left: e.pageX - $(this).offset().left - R + "px",
-        transform: "scale(1)",
-        opacity: "0"
-      });
-      if (flag == false) {
+        pointerEvents: "none",
+        transition: `all ${time}ms`,
+        transform: "translate3d(0, 0, 0) scale(0)",
+      }).appendTo(this);
+      const width = parseInt($(this).innerWidth());
+      const height = parseInt($(this).innerHeight());
+      const diameter = Math.max(
+        Math.pow((Math.pow(height, 2) + Math.pow(width, 2)), 0.5), 48
+      );
+      const center = {
+        x: e.pageX - $(this).offset().left,
+        y: e.pageY - $(this).offset().top
+      };
+      const translate = {
+        width: `${diameter * 2}px`,
+        height: `${diameter * 2}px`,
+        top: `${center.y - diameter}px`,
+        left: `${center.x - diameter}px`,
+        opacity: "0",
+        transform: `translate3d(${(-center.x + width / 2)}px, ${(-center.y + height / 2)}px, 0) scale(1)`
+      };
+      $(wave).css(translate, setTimeout(() => {
+        $(wave).remove();
+        $(this).prop("disabled", false);
+      }, time));
+      if (flag == true) {
         $(".music-card").css("transform", "translateX(calc(-100% + 20px))");
         $(".btn-indicator").css("transform", "rotate(0deg)");
-        flag = true;
-      } else if (flag == true) {
+        flag = false;
+      } else if (flag == false) {
         $(".music-card").css("transform", "translateX(0px)");
         $(".btn-indicator").css("transform", "rotate(180deg)");
-        flag = false;
+        flag = true;
       }
       if (!$(".aplayer-list").hasClass("aplayer-list-hide")) {
         $(".aplayer-list").addClass("aplayer-list-hide");
