@@ -1,7 +1,7 @@
 head: 
-   favicon: "/assets/images/favicon.ico" #  the favicon
-   high_res_favicon: "/assets/images/favicon_hd.ico" #  the favicon using high quality format
-   apple_touch_icon: "/assets/images/touch/icon-1024x1024.jpeg" # the iOS Home button icon
+   favicon: "/blog/assets/images/favicon.ico" #  the favicon
+   high_res_favicon: "/blog/assets/images/favicon_hd.ico" #  the favicon using high quality format
+   apple_touch_icon: "/blog/assets/images/touch/icon-1024x1024.jpeg" # the iOS Home button icon
    keywords: "个人博客" #  the site keywords
 
 uiux:
@@ -14,7 +14,7 @@ background:
    purecolor: "#efeef3" # the background color
 
 img: 
-   avatar: "/assets/images/avatar.png" # your avatar
+   avatablog/blog/assets/images/avatar.png" # your avatar
 
 card: 
    card_shadow: 2 # card shadow (0-24), 0 is not displayed
