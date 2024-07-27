@@ -1,7 +1,7 @@
 header:
   name: "ALIGEGE"
-  favicon: "/assets/images/avatar_hd.jpeg"
-  siteurl: "https://linzx91.github.io/blog"
+  favicon: "/blog/assets/images/avatar_hd.jpeg"
+  siteurl: "https://linzx91.github.io"
   introduction: "『 · 后端小白一枚，但是出奇的喜欢倒腾前端的东西！热爱游戏、平时喜欢逛逛技术论坛。』"
 
 photo:
