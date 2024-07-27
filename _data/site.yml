@@ -14,7 +14,7 @@ background:
    purecolor: "#efeef3" # the background color
 
 img: 
-   avatablog/blog/assets/images/avatar.png" # your avatar
+   avatar: /blog/assets/images/avatar.png" # your avatar
 
 card: 
    card_shadow: 2 # card shadow (0-24), 0 is not displayed
